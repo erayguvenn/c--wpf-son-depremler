@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2" xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="Son Depremler" Background="Gray" Height="572" Width="891">
+
+    <Grid>
+        <m:Map CredentialsProvider="INSERT_YOUR_BING_MAPS_KEY" x:Name="myMap" ZoomLevel="6" Margin="0,0,0,169" Center="39.1432984, 35.3912303" >
+
+
+        </m:Map>
+
+
+        <DataGrid x:Name="EarthquakeDataGrid" HorizontalAlignment="Left" Height="166" Margin="0,390,0,0" VerticalAlignment="Top" Width="808" SelectionChanged="DataGrid_SelectionChanged" RenderTransformOrigin="0.497,0.531">
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Turquoise"/>
+
+
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tarih " Binding="{Binding Tarih}" Width="150"/>
+                <DataGridTextColumn Header="Saat" Binding="{Binding Saat}" Width="150"/>
+                <DataGridTextColumn Header="Buyukluk " Binding="{Binding Buyukluk}" Width="150"/>
+                <DataGridTextColumn Header="Yer " Binding="{Binding Yer}" Width="150"/>
+                <DataGridTextColumn Header="Sehir " Binding="{Binding Sehir}" Width="150"/>
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="KAYDET" HorizontalAlignment="Left" Height="66" Margin="813,420,0,0" VerticalAlignment="Top" Width="68" Click="Button_Click"/>
+
+    </Grid>
+</Window>

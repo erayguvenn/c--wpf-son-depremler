@@ -32,14 +32,13 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        public string yazdirilacak;
         /// <summary>
         ///  earthquakesLocal adında bir list oluşturup bu list yardımıyla earthquakes den gelen verileri datagrid ekliyor.
         ///  pinLocation adında bir lit oluşturup bu list ki enlem ve boylam verisine göre pushpin ekliyor.
         /// </summary>
         public MainWindow()
         {
-
 
             GetApiData();
             InitializeComponent();
@@ -56,11 +55,12 @@ namespace WpfApp2
 
                 myMap.Children.Add(pin);
             }
+            ExampleAsync(earthquakesLocal);
 
 
         }
 
-      
+
 
 
         public List<Earthquake> earthquakes;
@@ -96,17 +96,21 @@ namespace WpfApp2
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-           
 
-            for (int i = 0; i < earthquakes.Count; i++)
+       
+        /// <summary>
+        /// deprem adında bir list oluşturup foreach ile bunu gezerek list içindeki bütün elemanları bir text dosyasına yazdırıyor.
+        /// </summary>
+        /// <param name="deprem"></param>
+        /// <returns></returns>
+        public static async Task ExampleAsync(List<Earthquake> deprem)
+        {
+            String yazdir = "";
+            foreach (var item in deprem)
             {
-                System.IO.File.WriteAllText(@"C:\dosya kayıt\text.txt", earthquakes[i].Sehir);
-               
+                yazdir += item.Tarih + "  " + item.Saat + " " +item.Buyukluk + " " + item.Yer + " " + item.Sehir + ".......";
             }
-           
+            await File.WriteAllTextAsync("deprem_deneme.txt", yazdir);
         }
     }
 

@@ -14,7 +14,7 @@
         </m:Map>
 
 
-        <DataGrid x:Name="EarthquakeDataGrid" HorizontalAlignment="Left" Height="166" Margin="0,390,0,0" VerticalAlignment="Top" Width="808" SelectionChanged="DataGrid_SelectionChanged" RenderTransformOrigin="0.497,0.531">
+        <DataGrid x:Name="EarthquakeDataGrid" HorizontalAlignment="Center" Height="166" Margin="0,390,0,0" VerticalAlignment="Top" Width="871" SelectionChanged="DataGrid_SelectionChanged" RenderTransformOrigin="0.497,0.531">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -35,7 +35,6 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="KAYDET" HorizontalAlignment="Left" Height="66" Margin="813,420,0,0" VerticalAlignment="Top" Width="68" Click="Button_Click"/>
 
     </Grid>
 </Window>
